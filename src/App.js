@@ -5,12 +5,12 @@ function App() {
     let [counter, setCounter] = useState(0);
       
       const increment = () => {
-        setCounter(counter++);
+        setCounter(counter + 1);
       }
 
       const decrement = () =>{
-        setCounter(counter--);
-        if (counter === -1) {
+        setCounter(counter - 1);
+        if (counter <= -1) {
           alert("Limit Exceeded")
           setCounter(increment);
         }
