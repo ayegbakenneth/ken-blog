@@ -1,11 +1,30 @@
 import './App.css';
 import React from 'react';
-
+import {useState} from 'react';
 function App() {
+    let [counter, setCounter] = useState(0);
+      
+      const increment = () => {
+        setCounter(counter++);
+      }
+
+      const decrement = () =>{
+        setCounter(counter--);
+        if (counter === -1) {
+          alert("Limit Exceeded")
+          setCounter(increment);
+        }
+      }
+   
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Hello World</h1>
+        <p>{counter}</p>
+        <div className="button">
+          <button onClick={increment}>Increase Here</button>
+          <button onClick={decrement}>Decrease Here</button>
+        </div>
+        
       </header>
     </div>
   );
