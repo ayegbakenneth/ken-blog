@@ -12,7 +12,7 @@ function App() {
         setCounter(counter - 1);
         if (counter <= -1) {
           alert("Limit Exceeded")
-          setCounter(increment);
+          setCounter(0);
         }
       }
    
