@@ -1,32 +1,28 @@
 import './App.css';
 import React from 'react';
-import {useState} from 'react';
-function App() {
-    let [counter, setCounter] = useState(0);
-      
-      const increment = () => {
-        setCounter(counter + 1);
-      }
+import BlogList from './BlogList';
+import useFetch from './useFetch';
 
-      const decrement = () =>{
-        setCounter(counter - 1);
-        if (counter <= -1) {
-          alert("Limit Exceeded")
-          setCounter(0);
-        }
-      }
-   
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>{counter}</p>
-        <div className="button">
-          <button onClick={increment}>Increase Here</button>
-          <button onClick={decrement}>Decrease Here</button>
-        </div>
+function App() {
+      const {data: blogs, isPending, error} = useFetch('http://localhost:8000/blogs');
         
-      </header>
-    </div>
+      
+  return (
+
+      <div className="App">
+        <div className="content">
+        
+        <header className="App-header">
+          { error && <div>{error}</div>}
+          {isPending && <div>Loading...</div>}
+          {blogs && <BlogList blogs={blogs} title="All Blogs" />}
+          {blogs && <BlogList blogs={blogs.filter((blog) => blog.author === 'Kenneth Ayegba')} title="Kenneth Ayegba blogs" />}
+          
+        </header>
+        
+        </div>
+      </div>
+
   );
 }
 

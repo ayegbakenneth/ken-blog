@@ -1,0 +1,17 @@
+{
+    "blogs": [
+        {
+            "title": "My new websites",
+            "body": "Kenneth loves coding...",
+            "author": "Kenneth Ayegba", 
+            "id": 1
+        },
+
+        {
+            "title": "First Page",
+            "body": "Programming is cool...", 
+            "author": "Esther Abu", 
+            "id": 2
+        }
+    ]
+}
